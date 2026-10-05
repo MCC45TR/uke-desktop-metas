@@ -1,37 +1,20 @@
-# uke-desktop-metas
+# Uke desktop selections
 
-Console-first, dependency-audited Uke desktop package selections for Xiaomi Pad 7 / POCO Pad X1 (`uke`, SM7675).
+This source family builds `uke-desktop-metas` and `kde-plasma-uke-meta` as real
+AArch64 RPMs plus their SRPM. The base carries an explicit readiness profile and
+requires the Uke core selection. The optional Plasma package selects stock Fedora
+Wayland, desktop, audio, networking and portal packages. It does not configure
+Uke panel geometry, ICC, touch, GPU, thermal policy or a display manager.
 
-This is an initial project-owned source and packaging repository. The manifest
-lists the intended packages, Uke evidence gates and current build readiness.
-There is no functional hardware payload or device acceptance at this checkpoint.
+`make validate` and `make srpm` support source checks and complete source generation.
+COPR's `.copr/Makefile` builds the source RPM from `main`; the GitHub push webhook
+requests native Rawhide AArch64 compilation. Actual dependency closure and package
+transactions must pass independently; graphics and tablet boot remain untested.
+The package itself ships no runtime script or service and does not activate a
+session. Fedora owns the dependencies' ordinary installation policies.
 
-## Package scope
-
-- `uke-desktop-metas`
-- `kde-plasma-uke-meta`
-
-Nabu reference families: `nabu-desktop-metas`, `kde-plasma-nabu-meta`.
-These are process references; Uke wiring, firmware and runtime behavior require
-independent implementation and validation.
-
-## Required validation
-
-- Validate kernel/boot and console before desktop admission.
-- Resolve closure on target AArch64.
-- Preserve stock KDE behavior unless a measured Uke issue requires a change.
-
-The first packaging target is Fedora Rawhide AArch64 in
-[uke-linux-test COPR](https://copr.fedorainfracloud.org/coprs/mcc45tr/uke-linux-test/).
-DEB and Alpine APK targets require their own native rules later.
-Unimplemented targets fail explicitly rather than producing placeholder RPMs.
-
-Use `make validate` to check this repository's manifest contract. Native device
-applications use C++; upstream C/assembly interfaces retain their original
-languages. Host automation uses Bash or Make. Python does not enter tablet
-payloads. Source archives belong in `referances/`, development in `src/`.
-Public records exclude personal paths, unit identifiers and calibration data.
-
-See [the roadmap](docs/ROADMAP.md), [source policy](docs/SOURCE-POLICY.md) and
-[manifest](manifests/component.json). New material findings are recorded in
-`docs/lessons/`; source, package, emulation and physical evidence stay distinct.
+The [development COPR](https://copr.fedorainfracloud.org/coprs/mcc45tr/uke-linux-test/)
+and [package hub](https://github.com/MCC45TR/uke-linux/blob/main/docs/PACKAGE-HUB.md)
+separate packaging readiness from physical platform readiness. Nabu's reference
+specification at `98188b595b42ba975f5bc238e596f330d3994ed8` contains panel-specific
+profiles, runtime services and session choices; these are not Uke evidence.

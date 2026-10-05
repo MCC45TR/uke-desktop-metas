@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "device": "uke",
+  "soc": "SM7675",
+  "profile": "stock-Fedora-Plasma-package-evaluation",
+  "desktop_package": "kde-plasma-uke-meta",
+  "default_desktop": "console-first",
+  "boot_tested": false,
+  "hardware_tested": false,
+  "display_gpu_touch": "not-qualified",
+  "automatic_session_or_display_configuration": false,
+  "runtime_policy": "native-and-shell-only-no-Python"
+}
