@@ -42,3 +42,34 @@
   Python consumers and provide native C++ configuration migrations.
 - Uncertainty: source generation does not prove a complete working runtime.
 - Next validation: signed native builds and complete install/upgrade/removal audit.
+
+## UKE-DESKTOP-META-004 — include the GNU C++ base dependency
+
+- Date: 2026-10-05.
+- Environment: 603 selected RPMs plus pinned inherited Rawhide AArch64 base.
+- Evidence: selected inputs and meta release-1 to release-2 lifecycle passed;
+  the full installed root failed on Python GDB helpers inherited from libstdc++.
+- Consequence: release 3 requires core release 3 and a seventh native runtime
+  capability. The bounded earlier results remain valid, while that root remains
+  rejected and cannot be labeled Python-free.
+- Uncertainty: package acceptance does not exercise a graphical session,
+  decoration rendering, Uke kernel boot or physical support.
+- Next validation: signed corrected closure, native fixtures, complete root,
+  actual release upgrade and admitted package removal.
+
+## UKE-DESKTOP-META-005 — withdraw derivative KDE dependency selection
+
+- Date: 2026-10-05.
+- Environment: explicit owner instruction, source profile/spec and COPR policy.
+- Evidence: the owner prohibits cloning KDE desktop applications. Plasma and
+  Dolphin variant source records and seven completed builds were removed after
+  exact local archival. Both source targets now fail before archive retrieval.
+- Superseding correction: release 3 no longer requires seven runtime
+  capabilities or supplies a KDE selection. It requires core release 3, carries
+  policy/readiness data and obsoletes the old `kde-plasma-uke-meta` package.
+- Consequence: use original distribution applications; their current Python
+  components block full graphical admission under the separate target rule.
+- Uncertainty: metadata compilation and console transactions do not establish
+  a graphical session, device boot or physical support.
+- Next validation: signed data-only RPM, actual earlier console-meta upgrade,
+  complete inherited-root audit and removal.
