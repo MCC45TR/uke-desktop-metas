@@ -30,3 +30,15 @@
   binary acceptance, graphical rendering or physical operation.
 - Next validation: collect native COPR and signed target transaction results in
   distinct reports, then separately qualify hardware.
+
+## UKE-DESKTOP-META-003 — require inspected native variants
+
+- Date: 2026-10-05.
+- Environment: complete Rawhide AArch64 desktop dependency and RPM payload audit.
+- Evidence: Python dependencies in five Fedora source families, plus two undeclared
+  Dolphin migration scripts, failed the original desktop acceptance gate.
+- Consequence: release 2 requires the core policy guard and six explicit native
+  runtime capabilities. The source rules for those variants remove optional
+  Python consumers and provide native C++ configuration migrations.
+- Uncertainty: source generation does not prove a complete working runtime.
+- Next validation: signed native builds and complete install/upgrade/removal audit.
